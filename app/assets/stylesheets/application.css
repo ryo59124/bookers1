@@ -72,3 +72,8 @@ h2 {
 p {
   margin: 33px;
 }
+
+.notice {
+  margin:33px;
+  color: green;
+}
