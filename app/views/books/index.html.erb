@@ -1,23 +1,26 @@
 <h1>Books</h1>
 
   <table>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-   <% @books.each do |book| %>
-    <tr>
-      <tb><%= book.title %></tb>
-      <tb><%= book.body %></tb>
-      <tb>
-        <%= link_to "Show", book_path(book.id) %>
-        <%= link_to "Edit", edit_book_path(book.id) %>
-        <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
-      </tb></br>
-    </tr>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <% @books.each do |book| %>
+    <tbody>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+        <td><%= link_to "Show", book_path(book.id) %></td>
+        <td><%= link_to "Edit", edit_book_path(book.id) %></td>
+        <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+        </tr>
+    </tbody>
+    <% end %>
   </table>
-<% end %>
+  　
   
 <h2>New book</h2>
 
@@ -33,12 +36,12 @@
 <%= form_with model: @book do |f| %>
 
   <div>Title</div>
-  <%= f.text_field :title %>
+  <div class="box"><%= f.text_field :title %></div>
   
   <div>Body</div>
-  <%= f.text_area :body %></br>
+  <div class="box"><%= f.text_area :body %></div>
   
-  <%= f.submit 'Create Book' %>
+  <div class="create"><%= f.submit 'Create Book' %></div>
   
 <% end %>
 
